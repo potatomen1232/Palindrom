@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Baza1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Kategorije">
+          <Key>
+            <PropertyRef Name="KategorijaID" />
+          </Key>
+          <Property Name="KategorijaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NazivKategorije" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="PalindromBaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Korisnik" Type="varchar" MaxLength="50" />
+          <Property Name="Tekst" Type="varchar(max)" />
+          <Property Name="DatumPostavljanja" Type="date" />
+          <Property Name="DatumIzmene" Type="date" />
+          <Property Name="IzvodjacIzmene" Type="varchar" MaxLength="50" />
+          <Property Name="Naslov" Type="varchar" MaxLength="50" />
+          <Property Name="Kategorija" Type="char" MaxLength="5" />
+        </EntityType>
+        <EntityContainer Name="Baza1ModelStoreContainer">
+          <EntitySet Name="Kategorije" EntityType="Self.Kategorije" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PalindromBaza" EntityType="Self.PalindromBaza" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Baza1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Kategorije">
+          <Key>
+            <PropertyRef Name="KategorijaID" />
+          </Key>
+          <Property Name="KategorijaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NazivKategorije" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PalindromBaza">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Korisnik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tekst" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="DatumPostavljanja" Type="DateTime" Precision="0" />
+          <Property Name="DatumIzmene" Type="DateTime" Precision="0" />
+          <Property Name="IzvodjacIzmene" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Naslov" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Kategorija" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="Baza1Entities4" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Kategorije" EntityType="Self.Kategorije" />
+          <EntitySet Name="PalindromBaza" EntityType="Self.PalindromBaza" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Baza1ModelStoreContainer" CdmEntityContainer="Baza1Entities4">
+          <EntitySetMapping Name="Kategorije">
+            <EntityTypeMapping TypeName="Baza1Model.Kategorije">
+              <MappingFragment StoreEntitySet="Kategorije">
+                <ScalarProperty Name="KategorijaID" ColumnName="KategorijaID" />
+                <ScalarProperty Name="NazivKategorije" ColumnName="NazivKategorije" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PalindromBaza">
+            <EntityTypeMapping TypeName="Baza1Model.PalindromBaza">
+              <MappingFragment StoreEntitySet="PalindromBaza">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+                <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+                <ScalarProperty Name="DatumPostavljanja" ColumnName="DatumPostavljanja" />
+                <ScalarProperty Name="DatumIzmene" ColumnName="DatumIzmene" />
+                <ScalarProperty Name="IzvodjacIzmene" ColumnName="IzvodjacIzmene" />
+                <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+                <ScalarProperty Name="Kategorija" ColumnName="Kategorija" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

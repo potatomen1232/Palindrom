@@ -1,0 +1,41 @@
+﻿@model List<Palindrom.Models.PalindromBaza>
+
+<h1>Početna</h1>
+
+<body>
+    <div>
+        
+        
+
+
+
+    </div>
+    <br />
+
+    <div>
+
+        <h2 name="naslovPretraga">Preporučeno</h2>
+
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            <input type="text" name="tb1" placeholder="Kako napraviti raketu sa plinskom bocom" style="width:30%;height:10%" />
+
+
+
+
+
+            <button class="btn">Pretrazi</button>
+        }
+
+        @foreach (var red in Model)
+        {
+
+            <button type="button" class="btn" onclick="location.href='@Url.Action("Contact", "Home",new {id = red.ID})'">@red.Naslov</button><br /><br />
+
+        }
+    </div>
+
+
+
+
+</body>

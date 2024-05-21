@@ -1,0 +1,42 @@
+﻿@model List<Palindrom.VjuModeli.IndeksVjuModel>
+<div id="levaStrana">
+
+    <h3>Kategorije</h3>
+    <h4>Ovde možete da vidite sve kategorije na Palindromu.</h4>
+
+
+    @foreach (var red in Model.First().NazivKategorije)
+    {
+    <ul>
+        <li><a href='@Url.Action("SpisakTemaPoKat", "Home", new { kat = red.NazivKategorije })'>@red.NazivKategorije</a></li>
+        
+    </ul>
+    }
+</div>
+
+
+
+<style>
+    body {
+    
+    
+    
+    }
+    #levaStrana {
+        background-color: white;
+        position: absolute;
+        width: 300px;
+        height: 100%;
+        padding:20px;
+        left:0%;
+        
+    }
+
+    h3 {
+    text-align:center;
+    
+    }
+
+   
+
+</style>

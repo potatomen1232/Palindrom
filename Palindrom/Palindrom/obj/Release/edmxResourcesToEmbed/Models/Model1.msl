@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Baza1ModelStoreContainer" CdmEntityContainer="Baza1Entities">
+    <EntitySetMapping Name="PalindromBaza">
+      <EntityTypeMapping TypeName="Baza1Model.PalindromBaza">
+        <MappingFragment StoreEntitySet="PalindromBaza">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Korisnik" ColumnName="Korisnik" />
+          <ScalarProperty Name="Tekst" ColumnName="Tekst" />
+          <ScalarProperty Name="DatumPostavljanja" ColumnName="DatumPostavljanja" />
+          <ScalarProperty Name="DatumIzmene" ColumnName="DatumIzmene" />
+          <ScalarProperty Name="IzvodjacIzmene" ColumnName="IzvodjacIzmene" />
+          <ScalarProperty Name="Naslov" ColumnName="Naslov" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

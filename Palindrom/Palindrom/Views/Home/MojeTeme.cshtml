@@ -1,0 +1,50 @@
+﻿@model List<Palindrom.VjuModeli.VjuModZaProfil>
+
+@{var ime = User.Identity.Name;}
+ 
+<h2>MojeTeme</h2>
+
+<div style="display: inline-block; position: relative; height: auto; width: 100%; padding: 10px;background-color: white">
+    <table>
+       <tr>
+           
+           <td> @Html.Partial("ProfilDelimicni", Model.First())<br/><br /> @if (User.Identity.Name == Model.First().Korisnik) {@Html.ActionLink("Izmeni nalog", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Izmena naloga", @style = "font-size:15pt" });} </td>
+           <td style="width:300px"></td>
+           <td style="background-color: green; padding: 70px; padding-right: 90px; margin-right: 20px; min-height: 400px; min-width: 520px; max-width: 550px; justify-content: center">
+               @if (Model.First().ID != 0)
+               {
+                   foreach (var red in Model)
+                   {
+
+               <button type="button" class="btn"style=""onclick="location.href='@Url.Action("UcitajTemu", "Home", new { id = red.ID })'">@red.Naslov</button>
+                       <br />
+                       <br />
+                   }
+               }
+               else if (Model.First().ID == 0 && (User.Identity.Name != Model.First().Korisnik))
+               {
+
+                   <h1 style="border:1px solid; background-color:white; padding:5px">Nema nijedne teme!</h1>
+
+
+
+               }
+
+               else
+               {
+                   <h1 style="border:1px solid; background-color:white; padding:5px ;text-align:center">Nemate nijednu temu.<br />@Html.ActionLink("Dodajte!", "DodajSadzaj", "Home")</h1>
+               }
+
+
+
+
+           </td>
+        </tr>
+
+
+
+
+
+         </table>
+</div>
+

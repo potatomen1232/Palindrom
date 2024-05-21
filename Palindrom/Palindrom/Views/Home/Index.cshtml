@@ -1,0 +1,89 @@
+﻿@model List<Palindrom.VjuModeli.IndeksVjuModel>
+
+
+
+
+<body>
+    <div>
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <div id="pocetna">
+
+        <h1>Početna</h1>
+        <br />
+        @using (Html.BeginForm("Index", "Home"))
+        {
+            <input type="text" name="tb1" placeholder="Kako napraviti raketu sa plinskom bocom" style="width:50%;height:10%;margin-bottom:10px" />
+
+
+            <br />
+
+
+
+            <button class="btn">Pretrazi</button>
+
+        }
+        <br />
+        @if (Model.Count() != 0)
+        {
+            foreach (var red in Model)
+            {
+
+                <button type="button" class="btn" onclick="location.href='@Url.Action("UcitajTemu", "Home", new { id = red.ID })'">@red.Naslov</button><br /><br />
+
+            }
+        }
+        else
+        {
+            <h1 style="color:red;font-weight:bold" id="nemaRez">Izgleda da nema rezultata koji odgovaraju Vašoj pretrazi.</h1>
+        }
+    </div>
+
+    @Html.Partial("StranaDelimicni",Model)
+    @Html.Partial("DelimicniKorisniciAdoZ",Model)
+    <script>
+
+        function dgmici() {
+
+
+
+            let dgmNiz = document.getElementsByTagName('button')
+
+            for (let i = 0; i < dgmNiz.length - 1; i++) {
+
+                alert(dgmNiz[i].textContent)
+
+            }
+
+            if (dgmNiz.length <= 1) { document.getElementById('nemaRez').textContent = 'Izgleda da nema rezultata koji odgovaraju Vašoj pretrazi.' }
+
+
+
+
+
+        }
+
+    </script>
+
+    <style>
+        #pocetna {
+            text-align: center;
+            background-color: green;
+            height: 100%;
+            position: absolute;
+            width: 50%;
+            right: 25%;
+        }
+    </style>
+
+</body>

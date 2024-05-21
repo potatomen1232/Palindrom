@@ -1,0 +1,23 @@
+﻿@model List<Palindrom.Models.PalindromBaza>
+
+
+<h2>MojeTeme</h2>
+
+<div style="display: inline-block; position: relative; height: auto; width: 100%; padding: 10px;background-color: white">
+
+    <img style="background-color:yellow; width:200px;height:200px;display:inline-flex" /><h3 style="display:inline-flex;padding-left:30px">@User.Identity.Name</h3>
+
+
+    <div style="display: inline-block; height: inherit; width: 50%; position: relative; padding: 15px; float: right; background-color: green ">
+        @foreach (var red in Model)
+        {
+
+            <button type="button" class="btn" style="float:right " onclick="location.href='@Url.Action("Contact", "Home",new {id = red.ID})'">@red.Naslov</button><br /><br />
+
+        }
+
+    </div>
+    <p style="display:inline-flex;font-size:15pt; margin-top:20px;border:solid 1px black">Ja sam admin na ovom sajtu.<br /><br />Vejk ap tu rijaliti. - Madara Učiha</p><br /><br />
+    @Html.ActionLink("Izmeni nalog", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Izmena naloga", @style = "font-size:15pt" })
+
+</div>
